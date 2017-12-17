@@ -206,6 +206,7 @@
       <sourceFolder url="file://$MODULE_DIR$/org.adempiere.pos/src/main/java/base" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/org.adempiere.pos/src/main/java/ui/swing" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/org.adempiere.pos/src/main/java/ui/zk" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/org.eevolution.freight/src/main/java/base" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
@@ -1278,11 +1279,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.11.8:jar" level="project" />
-    <orderEntry type="library" name="SBT: javax.servlet:javax.servlet-api:3.0.1:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.scalatest:scalatest_2.11:2.2.6:jar" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe:config:1.2.0:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.scala-lang.modules:scala-xml_2.11:1.0.2:jar" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -1419,5 +1416,8 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="scala-sdk-2.12.3" level="project" />
+    <orderEntry type="library" name="scalatest_2.12-3.0.1" level="application" />
+    <orderEntry type="library" name="scalactic_2.12-3.0.1" level="application" />
   </component>
 </module>

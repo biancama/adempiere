@@ -171,7 +171,7 @@ public class InvoiceGenerateFromShipment extends InvoiceGenerateFromShipmentAbst
 						order.saveEx();
 					} else {
 						MInvoiceSchedule is = MInvoiceSchedule.get(getCtx(), m_bp.getC_InvoiceSchedule_ID(), get_TrxName());
-						if (is.canInvoice(order.getDateOrdered(), order.getGrandTotal())) {
+						if (is.canInvoice(inOut.getMovementDate(), order.getGrandTotal())) {
 							doInvoice = true;
 						} else {
 							continue;
