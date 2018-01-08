@@ -113,8 +113,8 @@ public class InvoiceGenerateFromShipment extends InvoiceGenerateFromShipmentAbst
 			//
 			sql += " AND EXISTS (SELECT 1 FROM M_InOutLine ol "
 				+ "WHERE o.M_InOut_ID=ol.M_InOut_ID AND ol.IsInvoiced='N') "
-				+ "ORDER BY M_InOut_ID";
-				//+ "ORDER BY M_Warehouse_ID, PriorityRule, C_BPartner_ID, C_BPartner_Location_ID, M_InOut_ID";
+				//+ "ORDER BY M_InOut_ID";
+				+ "ORDER BY M_Warehouse_ID, PriorityRule, C_BPartner_ID, C_BPartner_Location_ID, M_InOut_ID";
 		}
 		
 		PreparedStatement pstmt = null;

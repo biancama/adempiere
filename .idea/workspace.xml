@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ea42611-0cd8-47e7-b2d3-d009fb0e3735" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8483ad34-1a4b-461b-961b-16939f8ccda7.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/8483ad34-1a4b-461b-961b-16939f8ccda7.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8483ad34-1a4b-461b-961b-16939f8ccda7/storage_v2/_src_/database/adempiere.lL8UYQ/schema/adempiere.lL8UYQ.meta" afterPath="$PROJECT_DIR$/.idea/dataSources/8483ad34-1a4b-461b-961b-16939f8ccda7/storage_v2/_src_/database/adempiere.lL8UYQ/schema/adempiere.lL8UYQ.meta" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8483ad34-1a4b-461b-961b-16939f8ccda7/storage_v2/_src_/database/adempiere.lL8UYQ/schema/adempiere.lL8UYQ.zip" afterPath="$PROJECT_DIR$/.idea/dataSources/8483ad34-1a4b-461b-961b-16939f8ccda7/storage_v2/_src_/database/adempiere.lL8UYQ/schema/adempiere.lL8UYQ.zip" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8483ad34-1a4b-461b-961b-16939f8ccda7/storage_v2/_src_/database/adempiere.lL8UYQ/schema/pg_catalog.0S1ZNQ.zip" afterPath="$PROJECT_DIR$/.idea/dataSources/8483ad34-1a4b-461b-961b-16939f8ccda7/storage_v2/_src_/database/adempiere.lL8UYQ/schema/pg_catalog.0S1ZNQ.zip" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/db/database/modification/ddt.sql" afterPath="$PROJECT_DIR$/db/database/modification/ddt.sql" />
+      <change beforePath="$PROJECT_DIR$/base/src/org/adempiere/process/InvoiceGenerateFromShipment.java" afterPath="$PROJECT_DIR$/base/src/org/adempiere/process/InvoiceGenerateFromShipment.java" />
     </list>
     <ignored path="extension_apparel_management.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,32 +37,6 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="PostgreSQL - adempiere@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="PostgreSQL - adempiere@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="PostgreSQL - adempiere@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="adempiere: database" type="6d9b600a:PostgresImplModel$Database" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="PostgreSQL - adempiere@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="adempiere: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="adempiere: schema" type="a16502c0:PostgresImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="PostgreSQL - adempiere@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="adempiere: database" type="6d9b600a:PostgresImplModel$Database" />
-        <item name="adempiere: schema" type="a16502c0:PostgresImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
     <select />
@@ -106,14 +76,14 @@
       <file leaf-file-name="ddt.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/database/modification/ddt.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-25">
+            <state relative-caret-position="1305">
               <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ad_sequence_no" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ad_sequence_no" pinned="false" current-in-tab="false">
         <entry file="das://table:/abf1596c/8483ad34-1a4b-461b-961b-16939f8ccda7/adempiere.adempiere.ad_sequence_no">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -125,19 +95,23 @@
       <file leaf-file-name="InvoiceGenerate.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/base/src/org/compiere/process/InvoiceGenerate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2325">
-              <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+            <state relative-caret-position="351">
+              <caret line="204" column="68" lean-forward="false" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MInvoice.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MInvoice.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/base/src/org/compiere/model/MInvoice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19470">
-              <caret line="1362" column="17" lean-forward="false" selection-start-line="1362" selection-start-column="17" selection-end-line="1362" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="208">
+              <caret line="1342" column="0" lean-forward="false" selection-start-line="1342" selection-start-column="0" selection-end-line="1342" selection-end-column="0" />
+              <folding>
+                <element signature="e#7608#7626#0" expanded="true" />
+                <element signature="e#32062#32070#0" expanded="true" />
+                <element signature="e#41750#41759#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,22 +119,19 @@
       <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8483ad34-1a4b-461b-961b-16939f8ccda7/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4695">
-              <caret line="313" column="79" lean-forward="false" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="81" />
+            <state relative-caret-position="4755">
+              <caret line="317" column="0" lean-forward="false" selection-start-line="317" selection-start-column="0" selection-end-line="317" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="X_C_Order.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base/src/org/compiere/model/X_C_Order.java">
+      <file leaf-file-name="InvoiceGenerateFromShipment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base/src/org/adempiere/process/InvoiceGenerateFromShipment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16935">
-              <caret line="1231" column="0" lean-forward="false" selection-start-line="1231" selection-start-column="0" selection-end-line="1231" selection-end-column="0" />
-              <folding>
-                <element signature="e#33962#33963#0" expanded="true" />
-                <element signature="e#34017#34018#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="463">
+              <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -309,9 +280,9 @@
         <option value="$PROJECT_DIR$/client/src/org/adempiere/apps/form/InvoiceGenFromShipment.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/8483ad34-1a4b-461b-961b-16939f8ccda7/console_1.sql" />
         <option value="$PROJECT_DIR$/base/src/org/adempiere/util/GenerateModel.java" />
-        <option value="$PROJECT_DIR$/base/src/org/adempiere/process/InvoiceGenerateFromShipment.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/8483ad34-1a4b-461b-961b-16939f8ccda7/console.sql" />
         <option value="$PROJECT_DIR$/db/database/modification/ddt.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/8483ad34-1a4b-461b-961b-16939f8ccda7/console.sql" />
+        <option value="$PROJECT_DIR$/base/src/org/adempiere/process/InvoiceGenerateFromShipment.java" />
       </list>
     </option>
   </component>
@@ -325,7 +296,7 @@
     <treeState />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1680" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
@@ -346,7 +317,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -496,9 +466,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1003,15 +974,17 @@
       <workItem from="1513937720231" duration="2239000" />
       <workItem from="1514569480164" duration="1724000" />
       <workItem from="1514715331583" duration="12668000" />
-      <workItem from="1514743370317" duration="453000" />
+      <workItem from="1514743370317" duration="501000" />
+      <workItem from="1515062895180" duration="2256000" />
+      <workItem from="1515395604795" duration="1436000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94392000" />
+    <option name="totallyTimeSpent" value="98132000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1680" y="23" width="1920" height="1177" extended-state="6" />
+    <frame x="1681" y="23" width="1920" height="1177" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="sbt" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1025,16 +998,16 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1656017" sideWeight="0.47339448" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36229205" sideWeight="0.6560319" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36229205" sideWeight="0.6560319" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951543" sideWeight="0.498006" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5032189" sideWeight="0.5224327" order="23" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46672827" sideWeight="0.68494517" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46672827" sideWeight="0.68494517" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3894273" sideWeight="0.6296112" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4845815" sideWeight="0.8968096" order="22" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2971246" sideWeight="0.5" order="6" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3035144" sideWeight="0.5" order="6" side_tool="true" content_ui="combo" />
       <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="25" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12063809" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1561,11 +1534,17 @@
           <properties />
           <option name="timeStamp" value="402" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/base/src/org/compiere/process/InvoiceGenerate.java</url>
+          <line>204</line>
+          <properties />
+          <option name="timeStamp" value="406" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="406" />
+      <option name="time" value="407" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1735,6 +1714,21 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>order.getBill_Location_ID()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>invoice.getC_BPartner_Location_ID()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>isConsolidateDocument()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>dtShipment.getDocBaseType()</expression-string>
         <language-id>JAVA</language-id>
@@ -1984,14 +1978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/org/adempiere/process/InvoiceGenerateFromShipment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2070">
-          <caret line="175" column="32" lean-forward="false" selection-start-line="175" selection-start-column="32" selection-end-line="175" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/abf1596c/8483ad34-1a4b-461b-961b-16939f8ccda7/adempiere.adempiere.m_transaction">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -2051,22 +2037,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/org/compiere/model/MInvoice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19470">
-          <caret line="1362" column="17" lean-forward="false" selection-start-line="1362" selection-start-column="17" selection-end-line="1362" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base/src/org/compiere/process/InvoiceGenerate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2325">
-          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base/src/org/compiere/model/X_C_Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16935">
@@ -2109,17 +2079,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8483ad34-1a4b-461b-961b-16939f8ccda7/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4695">
-          <caret line="313" column="79" lean-forward="false" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/database/modification/ddt.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-25">
+        <state relative-caret-position="1305">
           <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
@@ -2133,10 +2095,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8483ad34-1a4b-461b-961b-16939f8ccda7/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4755">
+          <caret line="317" column="0" lean-forward="false" selection-start-line="317" selection-start-column="0" selection-end-line="317" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="das://table:/abf1596c/8483ad34-1a4b-461b-961b-16939f8ccda7/adempiere.adempiere.ad_sequence_no">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/org/compiere/process/InvoiceGenerate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="204" column="68" lean-forward="false" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/org/adempiere/process/InvoiceGenerateFromShipment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base/src/org/compiere/model/MInvoice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="1342" column="0" lean-forward="false" selection-start-line="1342" selection-start-column="0" selection-end-line="1342" selection-end-column="0" />
+          <folding>
+            <element signature="e#7608#7626#0" expanded="true" />
+            <element signature="e#32062#32070#0" expanded="true" />
+            <element signature="e#41750#41759#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
