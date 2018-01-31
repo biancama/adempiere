@@ -148,7 +148,7 @@ public class InvoiceGenerateFromShipment extends InvoiceGenerateFromShipmentAbst
 			while (rs.next ()) {
 				MInOut inOut = new MInOut(getCtx(), rs, get_TrxName());
 				if (!inOut.isComplete()		//	ignore incomplete or reversals 
-					|| inOut.getDocStatus().equals(MInOut.DOCSTATUS_Reversed)
+					|| inOut.getDocStatus().equals(MInOut.DOCSTATUS_Reversed) || inOut.getC_DocType().getName().equals("MM Customer Return")
 				) {
 					continue;
 				}
@@ -184,7 +184,7 @@ public class InvoiceGenerateFromShipment extends InvoiceGenerateFromShipmentAbst
 					MInOutLine[] shipLines = inOut.getLines(false);
 					for (int j = 0; j < shipLines.length; j++) {
 						MInOutLine inOutLine = shipLines[j];
-						if (!inOutLine.isInvoiced()) {
+						if (!inOutLine.isInvoiced() && inOutLine.isActive()) {
 							invoice = createInvoiceLineFromShipmentLine(invoice, order, inOut, inOutLine);
 						}
 					}

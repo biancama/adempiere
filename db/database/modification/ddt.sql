@@ -668,6 +668,7 @@ CREATE OR REPLACE VIEW m_inout_line_v AS
     LEFT JOIN m_locator l ON ((iol.m_locator_id = l.m_locator_id)))
     LEFT JOIN c_orderline ol ON ((iol.c_orderline_id = ol.c_orderline_id)))
     LEFT JOIN c_charge c ON ((iol.c_charge_id = c.c_charge_id)))
+    WHERE iol.isactive = 'Y'
   UNION
   SELECT iol.ad_client_id,
     iol.ad_org_id,
@@ -726,7 +727,8 @@ CREATE OR REPLACE VIEW m_inout_line_v AS
     JOIN c_uom uom ON ((p.c_uom_id = uom.c_uom_id)))
     LEFT JOIN m_attributesetinstance asi ON ((iol.m_attributesetinstance_id = asi.m_attributesetinstance_id)))
     LEFT JOIN m_locator l ON ((iol.m_locator_id = l.m_locator_id)))
-    LEFT JOIN c_orderline ol ON ((iol.c_orderline_id = ol.c_orderline_id));
+    LEFT JOIN c_orderline ol ON ((iol.c_orderline_id = ol.c_orderline_id))
+  WHERE iol.isactive = 'Y';
 
 
 --
@@ -800,6 +802,7 @@ CREATE OR REPLACE VIEW m_inout_line_vt AS
     LEFT JOIN m_locator l ON ((iol.m_locator_id = l.m_locator_id)))
     LEFT JOIN c_orderline ol ON ((iol.c_orderline_id = ol.c_orderline_id)))
     LEFT JOIN c_charge_trl c ON ((iol.c_charge_id = c.c_charge_id)))
+  WHERE iol.isactive = 'Y'
   UNION
   SELECT iol.ad_client_id,
     iol.ad_org_id,
@@ -859,12 +862,15 @@ CREATE OR REPLACE VIEW m_inout_line_vt AS
     JOIN m_product_trl pt ON (((bl.m_product_id = pt.m_product_id) AND ((uom.ad_language)::text = (pt.ad_language)::text))))
     LEFT JOIN m_attributesetinstance asi ON ((iol.m_attributesetinstance_id = asi.m_attributesetinstance_id)))
     LEFT JOIN m_locator l ON ((iol.m_locator_id = l.m_locator_id)))
-    LEFT JOIN c_orderline ol ON ((iol.c_orderline_id = ol.c_orderline_id));
+    LEFT JOIN c_orderline ol ON ((iol.c_orderline_id = ol.c_orderline_id))
+  WHERE iol.isactive = 'Y';
 
 ALTER TABLE m_inout ADD COLUMN shipment_reason char;
 ALTER TABLE m_inout ADD COLUMN freightassignmentrule char;
 ALTER TABLE m_inout ADD COLUMN numberofitems numeric;
 ALTER TABLE c_bpartner ADD COLUMN fiscalid varchar(20);
+
+drop view m_inout_header_v;
 
 CREATE OR REPLACE VIEW m_inout_header_v AS
   SELECT io.ad_client_id,
@@ -883,6 +889,7 @@ CREATE OR REPLACE VIEW m_inout_header_v AS
     io.c_bpartner_id,
     bp.value AS bpvalue,
     bp.taxid AS bptaxid,
+    bp.fiscalid AS bpfiscalid,
     bp.naics,
     bp.duns,
     oi.c_location_id AS org_location_id,
@@ -934,6 +941,8 @@ CREATE OR REPLACE VIEW m_inout_header_v AS
 -- Name: m_inout_header_vt; Type: VIEW; Schema: adempiere; Owner: -
 --
 
+drop view m_inout_header_vt;
+
 CREATE  OR REPLACE VIEW m_inout_header_vt AS
   SELECT io.ad_client_id,
     io.ad_org_id,
@@ -951,6 +960,7 @@ CREATE  OR REPLACE VIEW m_inout_header_vt AS
     io.c_bpartner_id,
     bp.value AS bpvalue,
     bp.taxid AS bptaxid,
+    bp.fiscalid AS bpfiscalid,
     bp.naics,
     bp.duns,
     oi.c_location_id AS org_location_id,
@@ -1379,5 +1389,152 @@ CREATE OR REPLACE VIEW m_inout_candidate_v AS
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 JOIN m_inout io ON ((iol.m_inout_id = io.m_inout_id)))
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               WHERE ((iol.c_orderline_id = l.c_orderline_id) AND (io.docstatus = ANY (ARRAY['IP'::bpchar, 'WC'::bpchar])))))))
   GROUP BY o.ad_client_id, o.ad_org_id, o.c_bpartner_id, o.c_order_id, o.documentno, o.dateordered, o.c_doctype_id, o.poreference, o.description, o.salesrep_id, l.m_warehouse_id;
+
+drop view c_invoice_header_v;
+CREATE OR REPLACE VIEW c_invoice_header_v AS
+  SELECT i.ad_client_id,
+    i.ad_org_id,
+    i.isactive,
+    i.created,
+    i.createdby,
+    i.updated,
+    i.updatedby,
+    'en_US'::character varying AS ad_language,
+    i.c_invoice_id,
+    i.issotrx,
+    i.documentno,
+    i.docstatus,
+    i.c_doctype_id,
+    i.c_bpartner_id,
+    bp.value AS bpvalue,
+    bp.taxid AS bptaxid,
+    bp.fiscalid AS bpfiscalid,
+    bp.naics,
+    bp.duns,
+    oi.c_location_id AS org_location_id,
+    oi.taxid,
+    dt.printname AS documenttype,
+    dt.documentnote AS documenttypenote,
+    i.c_order_id,
+    i.salesrep_id,
+    COALESCE(ubp.name, u.name) AS salesrep_name,
+    i.dateinvoiced,
+    bpg.greeting AS bpgreeting,
+    bp.name,
+    bp.name2,
+    bpcg.greeting AS bpcontactgreeting,
+    bpc.title,
+    bpc.phone,
+    NULLIF((bpc.name)::text, (bp.name)::text) AS contactname,
+    bpl.c_location_id,
+    bp.referenceno,
+    ((l.postal)::text || (l.postal_add)::text) AS postal,
+    i.description,
+    i.poreference,
+    i.dateordered,
+    i.c_currency_id,
+    pt.name AS paymentterm,
+    pt.documentnote AS paymenttermnote,
+    i.c_charge_id,
+    i.chargeamt,
+    i.totallines,
+    i.grandtotal,
+    i.grandtotal AS amtinwords,
+    i.m_pricelist_id,
+    i.istaxincluded,
+    i.c_campaign_id,
+    i.c_project_id,
+    i.c_activity_id,
+    i.ispaid,
+    COALESCE(oi.logo_id, ci.logo_id) AS logo_id
+  FROM ((((((((((((c_invoice i
+    JOIN c_doctype dt ON ((i.c_doctype_id = dt.c_doctype_id)))
+    JOIN c_paymentterm pt ON ((i.c_paymentterm_id = pt.c_paymentterm_id)))
+    JOIN c_bpartner bp ON ((i.c_bpartner_id = bp.c_bpartner_id)))
+    LEFT JOIN c_greeting bpg ON ((bp.c_greeting_id = bpg.c_greeting_id)))
+    JOIN c_bpartner_location bpl ON ((i.c_bpartner_location_id = bpl.c_bpartner_location_id)))
+    JOIN c_location l ON ((bpl.c_location_id = l.c_location_id)))
+    LEFT JOIN ad_user bpc ON ((i.ad_user_id = bpc.ad_user_id)))
+    LEFT JOIN c_greeting bpcg ON ((bpc.c_greeting_id = bpcg.c_greeting_id)))
+    JOIN ad_orginfo oi ON ((i.ad_org_id = oi.ad_org_id)))
+    JOIN ad_clientinfo ci ON ((i.ad_client_id = ci.ad_client_id)))
+    LEFT JOIN ad_user u ON ((i.salesrep_id = u.ad_user_id)))
+    LEFT JOIN c_bpartner ubp ON ((u.c_bpartner_id = ubp.c_bpartner_id)));
+
+
+--
+-- Name: c_invoice_header_vt; Type: VIEW; Schema: adempiere; Owner: -
+--
+drop view c_invoice_header_vt;
+
+CREATE OR REPLACE VIEW c_invoice_header_vt AS
+  SELECT i.ad_client_id,
+    i.ad_org_id,
+    i.isactive,
+    i.created,
+    i.createdby,
+    i.updated,
+    i.updatedby,
+    dt.ad_language,
+    i.c_invoice_id,
+    i.issotrx,
+    i.documentno,
+    i.docstatus,
+    i.c_doctype_id,
+    i.c_bpartner_id,
+    bp.value AS bpvalue,
+    bp.taxid AS bptaxid,
+    bp.fiscalid AS bpfiscalid,
+    bp.naics,
+    bp.duns,
+    oi.c_location_id AS org_location_id,
+    oi.taxid,
+    dt.printname AS documenttype,
+    dt.documentnote AS documenttypenote,
+    i.c_order_id,
+    i.salesrep_id,
+    COALESCE(ubp.name, u.name) AS salesrep_name,
+    i.dateinvoiced,
+    bpg.greeting AS bpgreeting,
+    bp.name,
+    bp.name2,
+    bpcg.greeting AS bpcontactgreeting,
+    bpc.title,
+    bpc.phone,
+    NULLIF((bpc.name)::text, (bp.name)::text) AS contactname,
+    bpl.c_location_id,
+    bp.referenceno,
+    ((l.postal)::text || (l.postal_add)::text) AS postal,
+    i.description,
+    i.poreference,
+    i.dateordered,
+    i.c_currency_id,
+    pt.name AS paymentterm,
+    pt.documentnote AS paymenttermnote,
+    i.c_charge_id,
+    i.chargeamt,
+    i.totallines,
+    i.grandtotal,
+    i.grandtotal AS amtinwords,
+    i.m_pricelist_id,
+    i.istaxincluded,
+    i.c_campaign_id,
+    i.c_project_id,
+    i.c_activity_id,
+    i.ispaid,
+    COALESCE(oi.logo_id, ci.logo_id) AS logo_id
+  FROM ((((((((((((c_invoice i
+    JOIN c_doctype_trl dt ON ((i.c_doctype_id = dt.c_doctype_id)))
+    JOIN c_paymentterm_trl pt ON (((i.c_paymentterm_id = pt.c_paymentterm_id) AND ((dt.ad_language)::text = (pt.ad_language)::text))))
+    JOIN c_bpartner bp ON ((i.c_bpartner_id = bp.c_bpartner_id)))
+    LEFT JOIN c_greeting_trl bpg ON (((bp.c_greeting_id = bpg.c_greeting_id) AND ((dt.ad_language)::text = (bpg.ad_language)::text))))
+    JOIN c_bpartner_location bpl ON ((i.c_bpartner_location_id = bpl.c_bpartner_location_id)))
+    JOIN c_location l ON ((bpl.c_location_id = l.c_location_id)))
+    LEFT JOIN ad_user bpc ON ((i.ad_user_id = bpc.ad_user_id)))
+    LEFT JOIN c_greeting_trl bpcg ON (((bpc.c_greeting_id = bpcg.c_greeting_id) AND ((dt.ad_language)::text = (bpcg.ad_language)::text))))
+    JOIN ad_orginfo oi ON ((i.ad_org_id = oi.ad_org_id)))
+    JOIN ad_clientinfo ci ON ((i.ad_client_id = ci.ad_client_id)))
+    LEFT JOIN ad_user u ON ((i.salesrep_id = u.ad_user_id)))
+    LEFT JOIN c_bpartner ubp ON ((u.c_bpartner_id = ubp.c_bpartner_id)));
 
 update c_doctype set C_DocTypeShipment_ID = 1000011 where c_doctype_id = 1000026;
