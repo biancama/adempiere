@@ -52,3 +52,4 @@ migration/postgresql.properties
 /posterita/
 /zkpackages/
 .idea
+**.iml
