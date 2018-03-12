@@ -923,7 +923,8 @@ CREATE OR REPLACE VIEW m_inout_header_v AS
     COALESCE(oi.logo_id, ci.logo_id) AS logo_id,
     shipment_reason,
     freightassignmentrule,
-    numberofitems
+    numberofitems,
+    io.shipdate
   FROM ((((((((((m_inout io
     JOIN c_doctype dt ON ((io.c_doctype_id = dt.c_doctype_id)))
     JOIN c_bpartner bp ON ((io.c_bpartner_id = bp.c_bpartner_id)))
@@ -994,7 +995,8 @@ CREATE  OR REPLACE VIEW m_inout_header_vt AS
     COALESCE(oi.logo_id, ci.logo_id) AS logo_id,
     shipment_reason,
     freightassignmentrule,
-    numberofitems
+    numberofitems,
+    io.shipdate
   FROM ((((((((((m_inout io
     JOIN c_doctype_trl dt ON ((io.c_doctype_id = dt.c_doctype_id)))
     JOIN c_bpartner bp ON ((io.c_bpartner_id = bp.c_bpartner_id)))
@@ -1538,3 +1540,6 @@ CREATE OR REPLACE VIEW c_invoice_header_vt AS
     LEFT JOIN c_bpartner ubp ON ((u.c_bpartner_id = ubp.c_bpartner_id)));
 
 update c_doctype set C_DocTypeShipment_ID = 1000011 where c_doctype_id = 1000026;
+
+drop index c_invoice_documentno_target;
+drop index c_invoice_documentno;
