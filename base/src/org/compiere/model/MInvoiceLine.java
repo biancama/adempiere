@@ -870,12 +870,11 @@ public class MInvoiceLine extends X_C_InvoiceLine
 		if (tax != null) {
 			if (!tax.calculateTaxFromLines())
 				return false;
-		
-			// red1 - solving BUGS #[ 1701331 ] , #[ 1786103 ]
-			if (!tax.is_new() && !tax.delete(false, get_TrxName()))
-				return false;
 			if (!tax.save(get_TrxName()))
 				return false;
+			// red1 - solving BUGS #[ 1701331 ] , #[ 1786103 ]
+			//if (tax.getTaxAmt().signum() == 0 && !tax.is_new() && !tax.delete(false, get_TrxName()))
+			//	return false;
 		}
 		return true;
 	}
@@ -896,7 +895,7 @@ public class MInvoiceLine extends X_C_InvoiceLine
 			if (!updateInvoiceTax(true))
 				return false;
 		}
-		return updateHeaderTax();
+		return updateHeaderTax(false);
 	}	//	afterSave
 
 	/**
@@ -917,14 +916,27 @@ public class MInvoiceLine extends X_C_InvoiceLine
 			sLine.saveEx();
 		}
 
-		return updateHeaderTax();
+		return updateHeaderTax(true);
 	}	//	afterDelete
+
+	private void deleteInvoiceTaxIfTheLastLineHasBeenDeleted() {
+		String sql = "select count(*)\n" +
+			"from c_invoiceline\n" +
+			"where c_invoice_id = ?\n" +
+			"and c_tax_id = ?";
+		int numberOfLines = DB.getSQLValue (get_TrxName(), sql, getC_Invoice_ID(), getC_Tax_ID());
+
+		if (numberOfLines == 0) { // delete C_InvoiceTax
+			sql = "DELETE FROM C_InvoiceTax where c_invoice_id = " + getC_Invoice_ID() + " and c_tax_id = " + getC_Tax_ID();
+			DB.executeUpdate(sql, get_TrxName());
+		}
+	}
 
 	/**
 	 *	Update Tax & Header
 	 *	@return true if header updated with tax
 	 */
-	private boolean updateHeaderTax()
+	private boolean updateHeaderTax(boolean clearInvoiceTax)
 	{
 		// Update header only if the document is not processed - teo_sarca BF [ 2317305 ]
 		if (isProcessed() && !is_ValueChanged(COLUMNNAME_Processed))
@@ -956,7 +968,9 @@ public class MInvoiceLine extends X_C_InvoiceLine
 		if (no != 1)
 			log.warning("(2) #" + no);
 		m_parent = null;
-
+		if (clearInvoiceTax) {
+			deleteInvoiceTaxIfTheLastLineHasBeenDeleted();
+		}
 		return no == 1;
 	}	//	updateHeaderTax
 
